@@ -1,5 +1,4 @@
 import React from 'react';
-import useInputValues from '../../utility/data.reduce'
 import "./tagSearchBar.css";
 
 const TagSearchBar = ({filters}) =>{

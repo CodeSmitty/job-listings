@@ -2,12 +2,11 @@ import { useState, useEffect } from "react";
 import { data } from "../data/data";
 
 const useInputValues = () => {
-  const [valuesArr, setValuesArr] = useState([]);
   const [isFilterActive, setIsFilterActive] = useState(false);
   const [getFilteredResults, setGetFilteredResults] = useState();
   const [jobs, setJobs] = useState(data);
   const [tags, setTags] = useState([]);
-  const [filters, setFilters] = useState();
+  //const [filters, setFilters] = useState();
 
   useEffect(() => {
     (function () {
@@ -35,6 +34,8 @@ const useInputValues = () => {
           }
         }
       }
+
+      return jobProperty
     });
 
     //!tags.includes(inputValue) && setTags([...tags, inputValue]);
