@@ -1,39 +1,22 @@
-import React, { useState, useReducer } from "react";
+import React from "react";
 import JobComponent from "../jobs/JobComponent";
-import { data } from "../../data/data";
-import { getPropertyValues } from "../../utility/data.reduce";
+import useInputValues from "../../utility/data.reduce";
+import TagSearchBar from "../tagSearchBar/tagSearchBar";
+import "./filter-home.css";
 
 const Filter = () => {
-  //const [state, dispatch] = useReducer(reduce, data)
-  const [valuesArr, setValuesArr] = useState();
-  const [isFilterActive, setIsFilterActive] = useState(false);
-  const [selectedFilters, setSelectedFilters] = useState([]);
-  const jobs = data.map((job, index) => {
-    const click = (e, indexs) => {
-      setValuesArr([]);
-      const id = e.target.innerHTML;
+  const [isFilter, clicked, filteredArrays, tags] = useInputValues();
 
-      const returnedValues = getPropertyValues(data, id);
-
-      console.log(returnedValues);
-
-      setSelectedFilters((prev) => [...prev, id]);
-
-      setValuesArr(() => {
-        return returnedValues.map((x) => (
-          <JobComponent handleClick={(e) => click(e, index)} jobData={x} />
-        ));
-      });
-    };
-
-    return <JobComponent handleClick={(e) => click(e, index)} jobData={job} />;
+  const jobs = filteredArrays?.map((job) => {
+    return <JobComponent key={job.id} handleClick={clicked} jobData={job} />;
   });
 
   return (
-    <div>
+    <div className='filter-home'>
+      {tags.length > 0 ?(<TagSearchBar filters={tags} />) :null}
+      <div className="jobs-container">
       {jobs}
-      <hi>Test</hi>
-      {valuesArr}
+      </div>
     </div>
   );
 };

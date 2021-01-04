@@ -1,30 +1,61 @@
-export const getPropertyValues = (myObject, inputValue) => {
-  let jobProperty;
+import { useState, useEffect } from "react";
+import { data } from "../data/data";
 
-  //return myObject.filter(c =>c.languages.includes(inputValue) || c.tools.includes(inputValue))
-  myObject.map((obj, i) => {
-    for (let key in obj) {
-      const value = obj[key];
+const useInputValues = () => {
+  const [valuesArr, setValuesArr] = useState([]);
+  const [isFilterActive, setIsFilterActive] = useState(false);
+  const [getFilteredResults, setGetFilteredResults] = useState();
+  const [jobs, setJobs] = useState(data);
+  const [tags, setTags] = useState([]);
+  const [filters, setFilters] = useState();
 
-      if (typeof value === "object") {
-        if (value.includes(inputValue)) {
-          console.log(key);
-          jobProperty = myObject.filter(
-            (item) => item[key].indexOf(inputValue) !== -1
-          );
+  useEffect(() => {
+    (function () {
+      return setGetFilteredResults(jobs);
+    })();
+  }, [jobs]);
+
+
+  function getPropertyValues(myObject, inputValue) {
+    let jobProperty = [];
+
+    jobs.filter((job) => {
+      for (let key in job) {
+        const jobKeys = job[key];
+
+        if (jobKeys === inputValue) {
+          jobProperty.push(job);
+          setGetFilteredResults(jobProperty);
+         
         }
-
-        getPropertyValues(value, inputValue);
+        if (typeof jobKeys === "object") {
+          if (jobKeys.includes(inputValue)) {
+            jobProperty.push(job);
+            setGetFilteredResults(jobProperty);
+          }
+        }
       }
+    });
 
-      if (value === inputValue) {
-        console.log("property:" + key, "value:" + value);
+    //!tags.includes(inputValue) && setTags([...tags, inputValue]);
 
-        jobProperty = myObject.filter(
-          (item) => item[key].indexOf(value) !== -1
-        );
-      }
-    }
-  });
-  return jobProperty;
+    setIsFilterActive(true);
+    return jobProperty;
+  }
+
+  function clicked(tag) {
+    const inputValues = tag;
+
+   if (tags.includes(inputValues)) return;
+
+     setTags([...tags, inputValues]);
+
+    getPropertyValues(jobs, inputValues);
+  } 
+
+  
+
+  return [isFilterActive, clicked, getFilteredResults, tags];
 };
+
+export default useInputValues;

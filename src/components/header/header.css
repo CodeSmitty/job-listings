@@ -1,0 +1,13 @@
+.header{
+    height:200px;
+    background-image: url("../../images/bg-header-desktop.svg");
+   background-size: cover;
+}
+
+.header-container{
+    top:0;
+    left:0;
+    width: 100%;
+    position: fixed;
+    background-color: #5ba4a4;
+}

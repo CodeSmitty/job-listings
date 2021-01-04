@@ -1,0 +1,13 @@
+.filter-home{
+    width:80%;
+    z-index: 9;
+    position: relative;
+    margin:0 auto;
+    top:175px;
+    
+}
+
+.jobs-container{
+    margin-top:50px;
+    width:100%;
+}

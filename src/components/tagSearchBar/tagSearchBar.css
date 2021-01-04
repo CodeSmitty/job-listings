@@ -1,0 +1,53 @@
+/* - Light Grayish Cyan (Background): hsl(180, 52%, 96%)
+- Light Grayish Cyan (Filter Tablets): hsl(180, 31%, 95%)
+- Dark Grayish Cyan: hsl(180, 8%, 52%)
+- Very Dark Grayish Cyan: hsl(180, 14%, 20%) */
+
+.tag-search-container{
+    width:80%;
+    height:50px;
+    margin:0 auto;
+    padding:5px;
+    background-color:white;
+    display:flex;
+    flex-flow: row wrap;
+    justify-content:flex-start;
+    border-radius: 5px;
+    position: relative;
+      box-shadow: 0px 7px 10px 0 hsla(180, 8%, 52%, 0.548);
+}
+
+.filters-container{
+    margin:auto 0;
+    display:flex;
+    margin-right:10px;
+    border-radius: 5px;
+}
+
+
+.x:hover{
+    cursor: pointer;
+    background-color: hsl(180, 14%, 20%);
+    color:white;
+}
+
+
+
+
+.filters, .x{
+  display: inline-block;
+  background-color: hsl(180, 29%, 50%, 0.1);
+  color: hsl(180, 39%, 40%);
+  padding: 7px;
+  font-size: 12px;
+  font-weight: 700;
+  text-align: center;
+};
+
+
+
+
+
+
+
+
