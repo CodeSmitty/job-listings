@@ -40,6 +40,22 @@
   display: flex;
 }
 
+.company-title{
+  color: hsl(180, 39%, 40%);
+  font-weight: 600;
+}
+
+.job-position{
+  color:hsl(180, 14%, 20%);
+  font-weight:bold;
+  
+}
+
+.job-position:hover{
+  cursor: pointer;
+  color: hsl(180, 39%, 40%);
+}
+
 .info-data {
   padding-right: 10px;
   font-size: 12px;

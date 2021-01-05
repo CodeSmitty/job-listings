@@ -4,8 +4,6 @@
 - Very Dark Grayish Cyan: hsl(180, 14%, 20%) */
 
 .tag-search-container{
-    width:80%;
-    height:50px;
     margin:0 auto;
     padding:5px;
     background-color:white;
@@ -22,6 +20,7 @@
     display:flex;
     margin-right:10px;
     border-radius: 5px;
+    padding:5px;
 }
 
 
@@ -29,6 +28,7 @@
     cursor: pointer;
     background-color: hsl(180, 14%, 20%);
     color:white;
+    border-radius: 5px;
 }
 
 
@@ -38,7 +38,7 @@
   display: inline-block;
   background-color: hsl(180, 29%, 50%, 0.1);
   color: hsl(180, 39%, 40%);
-  padding: 7px;
+  padding: 10px;
   font-size: 12px;
   font-weight: 700;
   text-align: center;

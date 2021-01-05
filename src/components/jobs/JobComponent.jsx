@@ -18,8 +18,8 @@ const JobComponent = ({ jobData, handleClick, clickedIds }) => {
       </div>
       <div className="job-info-container">
         <div className="job-title-and-company">
-          <p style={{ paddingBottom: "5px" }}>{jobData.company}</p>
-          <h4>{jobData.position}</h4>
+          <p className="company-title" style={{ paddingBottom: "5px" }}>{jobData.company}</p>
+          <h4 className="job-position">{jobData.position}</h4>
         </div>
         <div className="job-postedAt-information">
           <p className="info-data">{jobData.postedAt}</p>
